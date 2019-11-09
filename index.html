@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            //generate random number between 0 and 2, match number to rock, paper, or scissors, return computer choice
+            let randomNum = Math.floor(Math.random() * Math.floor(3));
+            
+            if (randomNum == 0) {
+                return "rock";
+            }
+            else if (randomNum == 1) {
+                return "paper";
+            }
+            else {
+                return "scissors";
+            }
+        }
+
+        function playRound(playerSelection,computerSelection) {
+            //play a single round
+            playerChoice = playerSelection.toLowerCase();
+            switch (playerChoice) {
+                case "rock":
+                    switch (computerSelection) {
+                        case "rock": 
+                            return "Tie!";
+                            break;
+
+                        case "paper": 
+                            return "You Lose! Paper beats Rock!";
+                            break;
+
+                        case "scissors": 
+                            return "You win! Rock beats Scissors!";
+                    }
+                break;
+                
+                case "paper": 
+                    switch(computerSelection) {
+                        case "rock": 
+                            return "You win! Paper beats Rock!";
+                            break;
+                            
+                        case "paper": 
+                            return "Tie!";
+                            break;
+
+                        case "scissors": 
+                            return "You lose! Scissors beat Paper!";
+                        }
+                    break;
+
+                case "scissors": 
+                        switch(computerSelection) {
+                            case "rock":
+                                return "You lose! Rock beats Scissors!";
+                                break;
+
+                            case "paper": 
+                                return "You win! Scissors beats Paper!";
+                                break;
+
+                            case "scissors": 
+                                return "Tie!";
+                        }
+                default: 
+                    return "You lose for not following the rules!";
+            }
+        }
+
+        function game() {
+            
+        }
+    
+    </script>
+</body>
+</html>
