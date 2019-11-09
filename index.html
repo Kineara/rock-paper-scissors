@@ -32,7 +32,7 @@
                             break;
 
                         case "paper": 
-                            return "You Lose! Paper beats Rock!";
+                            return "You lose! Paper beats Rock!";
                             break;
 
                         case "scissors": 
@@ -74,9 +74,40 @@
         }
 
         function game() {
+            let round = 1;
+            let playerScore = 0;
+            let computerScore = 0;
+
+            while (round < 6) {
+                console.log("Round" + round + "!");
+                console.log("Current score: Player - " + playerScore + ", Computer - " + computerScore);
+                let playerChoice = prompt("Rock, Paper, or Scissors?");
+                result = playRound(playerChoice,computerPlay());
+                
+                if (result.search("win") != -1) {
+                    playerScore += 1;
+                }
+                else if (result.search("lose") != -1) {
+                    computerScore += 1;
+                }
+                
+                console.log(result);
+                round += 1;
+            }
+
+        console.log("Game over!");
+        console.log("Final Score: Player - " + playerScore + ", Computer - " + computerScore);
             
-        }
-    
+            if (playerScore > computerScore) {
+                console.log("Player wins!");
+            }
+            else if (computerScore > playerScore) {
+                console.log("Computer wins!");
+            }
+            else {
+                console.log("You tied!");
+            }
+        }    
     </script>
 </body>
 </html>
